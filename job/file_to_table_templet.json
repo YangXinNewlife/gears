@@ -1,0 +1,21 @@
+{
+  "jobname":"",
+  "description":"",
+  "src": {
+            "db_type":"Mysql",
+            "host":"",
+            "port":"",
+            "user":"",
+            "password":"",
+            "database":"test",
+            "tables":"[]"
+          },
+  "dst": {
+            "db_type":"HDB",
+            "host":"",
+            "port":"",
+            "user":"",
+            "password":"",
+            "database":""
+        }
+}
