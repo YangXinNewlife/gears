@@ -5,16 +5,16 @@ Gears is a ETL Tool.
 Python
 
 # Source DataType
-Mysql
-Oracle
-SQLServer
-DB2
-Postgresql
-HDB
-HDFS
-Hive
-Files
-Compress
+1.Mysql
+2.Oracle
+3.SQLServer
+4.DB2
+5.Postgresql
+6.HDB
+7.HDFS
+8.Hive
+9.Files
+10.Compress
 
 # Update Date
 20170425
