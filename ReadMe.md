@@ -20,8 +20,8 @@ Python
 20170425
 
 # Data Transfer Mode
-*Single Import
-*Append Only
+* Single Import
+* ppend Only
 
 #
 
