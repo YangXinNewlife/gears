@@ -2,7 +2,7 @@
 Gears is a ETL Tool.
 
 # Language
-Python
+Python 2
 
 # Source DataType
 * Mysql
