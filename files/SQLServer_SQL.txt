@@ -1,0 +1,5 @@
+"gain column_name, data_type":select column_name,data_type from information_schema.columns where table_name = '%s'"
+"gain all tables":select name from sysobjects where type='U'
+"gain primary key":SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE  WHERE TABLE_NAME='%s'
+
+
