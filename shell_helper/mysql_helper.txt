@@ -1,0 +1,6 @@
+[Mysql SQL]
+# get table fields name and datatype
+select COLUMN_NAME, DATA_TYPE from INFORMATION_SCHEMA.Columns where table_name='%s'
+
+# get table primary key
+select COLUMN_NAME from INFORMATION_SCHEMA.COLUMNS where table_name='%s' AND COLUMN_KEY='PRI

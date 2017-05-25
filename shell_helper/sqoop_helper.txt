@@ -1,0 +1,25 @@
+[Sqoop Shell]
+# mysql -> hive
+sqoop_str = "sqoop import --hive-import --connect 'jdbc:mysql://%s:%s/%s' --username '%s' --password '%s' --table '%s' --hive-table %s.%s --null-string ' ' --null-non-string ' ' --hive-drop-import-delims --split-by '%s' -m 3;"%(host, port, db, username, password, src_table, hive_database, dst_table, primary_key)
+
+#mysql -> hbase
+sqoop_str = "sqoop import --connect jdbc:mysql://%s:%s/%s --table %s --hbase-table %s --column-family %s --hbase-create-table -username %s -password %s --incremental append --check-column %s --last-value %s --null-string ' ' --null-non-string ' ' --hive-drop-import-delims"%(host, port, db, src_table, dst_table, dst_table, username, password, statement, statement_value)
+
+# oracle -> hive
+sqoop_str = "sqoop import --hive-import --connect 'jdbc:oracle:thin:@%s:%s:%s' --username '%s' --password '%s' --table '%s.%s' --hive-table '%s.%s' --null-string ' ' --null-non-string ' ' --hive-drop-import-delims --split-by '%s' -m 3;"%(host, port, sid, username, password, db, table.upper(), dst_database, dst_table, primary_key[0][0])
+
+# oracle -> hbase
+sqoop_str = "sqoop import --connect jdbc:oracle:thin:@%s:%s:%s --table %s.%s --hbase-table %s --column-family %s --hbase-create-table -username %s -password %s --incremental append --check-column %s --last-value %s --null-string ' ' --null-non-string ' ' --hive-drop-import-delims"%(host, port, sid, db, src_table, dst_table, dst_table, username, password, statement, statement_value)
+
+# postgres -> hive
+sqoop_str = "sqoop import --hive-import --connect 'jdbc:postgresql://%s:%s/%s' --username '%s' --password '%s' --table '%s' --hive-table %s.%s --null-string ' ' --null-non-string ' ' --hive-drop-import-delims --split-by '%s' -m 3;"%(host, port, db, username, password, src_table, hive_database, dst_table, primary_key)
+
+# postgres -> hbase
+sqoop_str = "sqoop import --connect jdbc:postgresql://%s:%s/%s --table %s --hbase-table %s --column-family %s --hbase-create-table -username %s -password %s --incremental append --check-column %s --last-value %s --null-string ' ' --null-non-string ' ' --hive-drop-import-delims"%(host, port, db, src_table, dst_table, dst_table, username, password, statement, statement_value)
+
+# sqlserver -> hive
+sqoop_str = "sqoop import --hive-import --connect 'jdbc:sqlserver://%s;username=%s;password=%s;database=%s' --table '%s' --hive-table '%s.%s' --null-string ' ' --null-non-string ' ' --hive-drop-import-delims --split-by '%s' -m 3;"%(src_host, src_username, src_password, src_database, table, dst_database, dst_table, primary_key)
+
+# sqlserver -> hbase
+sqoop_str = "sqoop import --connect 'jdbc:sqlserver://%s;username=%s;password=%s;database=%s' --table %s --hbase-table %s --column-family %s --hbase-create-table --incremental append --check-column %s --last-value %s --null-string ' ' --null-non-string ' ' --hive-drop-import-delims"%(host, username, password, db, src_table, dst_table, dst_table,  statement, statement_value)
+

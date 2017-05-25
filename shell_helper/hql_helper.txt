@@ -1,3 +1,9 @@
+[Hive SQL]
+# create table
 "create table": create table tablename (id name,.....) row format delimited fields terminated by ','
+
+# load file
 "load hdfs data":LOAD DATA INPATH '%s' INTO TABLE %s"%(filename, tablename)
+
+# overwrite table
 "overwrite load hdfs data":LOAD DATA INPATH '%s' OVERWRITE INTO TABLE %s

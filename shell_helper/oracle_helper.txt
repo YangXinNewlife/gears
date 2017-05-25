@@ -1,0 +1,15 @@
+[Oracle SQL]
+# get column_name, data_type
+SELECT COLUMN_NAME, DATA_TYPE FROM user_tab_columns WHERE table_name = '%s'
+
+# gain primary key
+select cu.COLUMN_NAME from user_cons_columns cu, user_constraints au where cu.constraint_name = au.constraint_name and au.constraint_type = 'P' and au.table_name = '%s'
+
+# gain sequences
+select sequence_name from user_sequences
+
+# gain max sequence
+select max_value from user_sequences
+
+# gain all tables
+select table_name from tabs

@@ -15,26 +15,20 @@ class CsvCourier(Courier):
     @staticmethod
     def csv_pxf_write_table(table, host, database, t_type, columns_param, datacolumns_last, jobid):
         loger = logger.Logger()
-        print "00000000000000000000000000000000000000000000000000"
         str2 = ''
         count = 0
-        print "7777777777777777777777777777777777777777777"
         print columns_param
         print type(columns_param)
         print len(columns_param)
-        print "77777777777777777777777777777777777777777777"
         if t_type == 1 or t_type == '1':
             try:
                 for i in columns_param:
-                    print "111111111111111111111111111"
                     cw = csv_hive_hawq_writer.CsvHiveHawqWriter()
                     fieldsValue = cw.convert_data_type(i.get('col_type'))
-                    print "44444444444444444444444444444444444444444444444"
                     str2 += i.get('col_name') + " " + fieldsValue
                     if count != len(columns_param) - 1:
                         str2+= ', '
                     count += 1
-                print "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
                 columns1 = str2
                 #this is a list store
                 table_sql = []

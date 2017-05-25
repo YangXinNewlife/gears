@@ -6,7 +6,7 @@ import os
 reload(sys)
 
 '''
-parser the config files
+parser the config shell_helper
 '''
 class LocalConfig(object):
     def __init__(self):

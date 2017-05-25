@@ -1,0 +1,20 @@
+[PXF-Service]
+[Hive]
+# create external table
+create_ext_table_sql = "CREATE EXTERNAL TABLE %s_ext (%s)\nLOCATION (\'pxf://%s:%s/%s.%s?PROFILE=Hive\') FORMAT \'custom\' (formatter=\'pxfwritable_import\');" % (dst_table,columns1,host, port, database, dst_table)
+
+# create table
+table_sql.append("CREATE TABLE %s (\n%s\n)\nWITHOUT OIDS;" % (dst_table, columns1))
+
+# insert into select
+table_sql.append("INSERT INTO %s SELECT * FROM %s_ext;" % (dst_table, dst_table))
+
+[HBase]
+# create external table
+create_ext_table_sql = "CREATE EXTERNAL TABLE %s_ext (%s)\nLOCATION (\'pxf://%s:%s/%s?PROFILE=HBase\') FORMAT \'custom\' (formatter=\'pxfwritable_import\');" % (dst_table,columns1,host, port, dst_table)
+
+# create table
+table_sql.append("CREATE TABLE %s (\n%s\n)\nWITHOUT OIDS;" % (dst_table, columns2))
+
+# insert into select
+table_sql.append("INSERT INTO %s SELECT %s FROM %s_ext;" % (dst_table, columns_new, dst_table))

@@ -1,0 +1,58 @@
+[Hadoop2 Shell]
+# hdfs append to file
+hdfs dfs -appendToFile localfile /user/hadoopfile
+hdfs dfs -appendToFile localfile1, localfile2 /user/hadoopfile
+
+# cat hdfs file
+hdfs dfs -cat /user/hadoopfile
+
+# change group
+hdfs dfs -chgrp -R group hadoop
+
+# chmod file
+hdfs dfs -chmod -R hadoopfile
+
+# chown file
+hdfs dfs -chown -R owner:group hadoopfile
+
+# copyFromLocal
+hdfs dfs -copyToLocal hadoopfile localfile
+
+# count
+hdfs dfs -count hadoopfile1 hadoopfile2
+hdfs dfs -count -q hadoopfile
+
+# copy
+hdfs dfs -cp srcfile dstfile
+
+# du --- show catalog size
+hdfs dfs -du /hadoopdir
+
+# expunge
+hdfs dfs -expunge
+
+# get
+hdfs dfs -get /hadoopfile /local
+
+# getfacl
+hdfs dfs -getfacl -R /hadoopfile
+
+# put
+hdfs dfs -put /lcoalfile /hadoopfile
+
+# rm
+hdfs dfs -rm /hadoopfile
+
+# rmr
+hdfs dfs -rmr /hadoopfile
+
+# text
+hdfs dfs -text /hadoopfile
+
+
+
+
+
+
+
+

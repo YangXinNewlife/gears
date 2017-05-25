@@ -25,7 +25,7 @@ class files_jparser(object):
             self.token = json_params["token"]
             self.task_name = json_params["name"]
             self.description = json_params["description"]
-            self.files = json_params["params"]["src_conn"]["files"]
+            self.files = json_params["params"]["src_conn"]["shell_helper"]
             if type(self.files) == list:
                 pass
             else:
