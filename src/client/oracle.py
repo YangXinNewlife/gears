@@ -1,19 +1,34 @@
 # -*- coding:utf-8 -*-
-__author__ = 'jiuzhang'
+__author__ = 'yangxin'
 import cx_Oracle
-from src.mapping.writer import oracle_hive_hawq_writer
-from src.database import db_conns
-from src.logger import logger
-from src.job_attributes import JobStatus
+from src.client.client import Client
 
 
-class OracleClient(object):
-    user = None
-    password = None
-    host = None
-    port = None
-    db = None
+class OracleClient(Client):
+    def get_connection(self):
+        connUrl='%s/%s@%s:%s/%s'%(self.params.get("user"),
+                                  self.params.get("password"),
+                                  self.params.get('host'),
+                                  self.params.get('port'),
+                                  self.params.get('db'))
+        conn = cx_Oracle.connect(connUrl)
+        return conn
 
+    def query_sql_inner(self, sql):
+        cursor = self.conn.cursor()
+        cursor.execute(sql)
+        rows = cursor.fetchall()
+        return rows
+
+    def execute_sql_inner(self, sql):
+        cur = self.conn.cursor()
+        cur.execute(sql)
+        self.conn.commit()
+
+    def close_connection(self):
+        self.conn.close()
+
+'''
     def __init__(self, user, password, host, port, db, jobid):
         loger = logger.Logger("Method:init")
         try:
@@ -181,3 +196,4 @@ class OracleClient(object):
 
     def close(self):
         self.conn.close()
+'''

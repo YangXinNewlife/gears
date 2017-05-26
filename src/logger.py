@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-__author__ = 'yx'
+__author__ = 'yangxin'
 import logging
 from src.config import config
 
@@ -15,7 +15,6 @@ class Logger(object):
                     filemode ='a')
 
        if loggerName == "Default":
-           #print "Warn: log name not set yet , using default value ."
            pass
 
        self.loggerName = loggerName
