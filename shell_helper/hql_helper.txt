@@ -1,6 +1,6 @@
 [Hive SQL]
 # create table
-"create table": create table tablename (id name,.....) row format delimited fields terminated by ','
+create table tablename (id name,.....) row format delimited fields terminated by ','
 
 # load file
 "load hdfs data":LOAD DATA INPATH '%s' INTO TABLE %s"%(filename, tablename)
